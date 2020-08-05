@@ -1,5 +1,6 @@
-package com.foodtruck.shop.model;
+package com.foodtruck.shop.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class Orders {
 	
 	private Double totalAmount;
 
-	@OneToMany(mappedBy= "order")
-	private List<OrderDetails> orderDetails;
+	@OneToMany
+	private List<OrderDetails> orderDetails = new ArrayList<>();
 
 	public Integer getOrderId() {
 		return orderId;
@@ -73,6 +74,7 @@ public class Orders {
 
 	public void setOrderDetails(List<OrderDetails> orderDetails) {
 		this.orderDetails = orderDetails;
+		
 	}
 
 	@Override

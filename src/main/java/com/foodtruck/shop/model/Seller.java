@@ -1,5 +1,6 @@
-package com.foodtruck.shop.model;
+package com.foodtruck.shop.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -29,7 +29,7 @@ public class Seller {
 	
 	@OneToMany(mappedBy = "sellerId")
 	// @JoinColumn(name="sellerId")
-	private List<Product> products;
+	private List<Product> products = new ArrayList<>();
 
 	public String getSellerName() {
 		return sellerName;
@@ -79,6 +79,11 @@ public class Seller {
 	public void setSellerId(Integer sellerId) {
 		this.sellerId = sellerId;
 	}
+	
+	public void addNewProduct(Product product) {
+		this.products.add(product);
+	}
+	
 
 	@Override
 	public String toString() {

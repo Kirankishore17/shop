@@ -1,4 +1,4 @@
-package com.foodtruck.shop.model;
+package com.foodtruck.shop.Model;
 
 
 import javax.persistence.Entity;
@@ -13,23 +13,23 @@ import javax.persistence.OneToOne;
 public class OrderDetails {
 
 	
-	//private Integer orderId;
-	
-	private Integer productDetailId;
-	
+//	private Integer orderId;
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	private Integer productDetailId;
+
 	private Integer qty;
 	
 	@OneToOne
 	@JoinColumn(name = "productId")
 	private Product product;
 	
-	@ManyToOne
-	@JoinColumn(name="orderId")
-	private Orders order;
+	// @ManyToOne
+	// @JoinColumn(name="orderId")
+	// private Integer order;
 
 	public int getId() {
 		return id;
@@ -56,27 +56,36 @@ public class OrderDetails {
 		this.product = product;
 	}
 
-	public Orders getOrder() {
-		return order;
-	}
+//	public Integer getOrder() {
+//		return order;
+//	}
+//
+//	public void setOrder(Integer order) {
+//		this.order = order;
+//	}
 
-	public void setOrder(Orders order) {
-		this.order = order;
-	}
-
+	
 
 	public Integer getProductDetailId() {
 		return productDetailId;
 	}
 
+//	public Integer getOrderId() {
+//		return orderId;
+//	}
+//
+//	public void setOrderId(Integer orderId) {
+//		this.orderId = orderId;
+//	}
+
 	public void setProductDetailId(Integer productDetailId) {
 		this.productDetailId = productDetailId;
 	}
+	
 
 	@Override
 	public String toString() {
-		return "OrderDetails [productId=" + productDetailId + ", id=" + id + ", qty=" + qty + ", product=" + product
-				+ ", order=" + order + "]";
+		return "OrderDetails [productId=" + productDetailId + ", id=" + id + ", qty=" + qty + ", product=" + product + "]";
 	}
 	
 	

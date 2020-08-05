@@ -1,5 +1,6 @@
-package com.foodtruck.shop.model;
+package com.foodtruck.shop.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class Customer {
 	
 	@OneToMany
 	@JoinColumn(name="customerId")
-	private List<Orders> orders;
+	private List<Orders> orders = new ArrayList<>();
 
 	public Integer getCustomerId() {
 		return customerId;

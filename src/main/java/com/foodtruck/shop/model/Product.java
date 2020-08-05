@@ -1,4 +1,4 @@
-package com.foodtruck.shop.model;
+package com.foodtruck.shop.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
