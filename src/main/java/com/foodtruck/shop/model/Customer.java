@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Customer {
 
@@ -34,8 +36,10 @@ public class Customer {
 	
 	private String password;
 	
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
 	private Date registeredDate;
 	
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
 	private Date updatedDate;
 	
 	@OneToMany

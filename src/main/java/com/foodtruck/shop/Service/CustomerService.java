@@ -18,42 +18,48 @@ import com.foodtruck.shop.Repository.SellerRepo;
 public class CustomerService {
 
 	@Autowired
-	private CustomerRepo repo;
+	private CustomerRepo customerRepo;
 	
 	@Autowired
 	private SellerRepo sell;
 	
-	@RequestMapping
+	
+	//@RequestMapping
 	public void home() {
-		Customer x = new Customer();
-		x.setAddress("dddd");
-		x.setCity("lksjdmck");
-		x.setContact("11111112");
-		x.setEmail("gmail");
-		x.setFirstName("kk");
-		x.setLastName("k");
-		x.setPassword("pksw");
-		x.setRegisteredDate(new Date());
-		x.setState("tn");
-		x.setUpdatedDate(new Date());
-		repo.save(x);
-		System.out.println(repo.getOne(2));
+//		Customer x = new Customer();
+//		x.setAddress("dddd");
+//		x.setCity("lksjdmck");
+//		x.setContact("11111112");
+//		x.setEmail("gmail");
+//		x.setFirstName("kk");
+//		x.setLastName("k");
+//		x.setPassword("pksw");
+//		x.setRegisteredDate(new Date());
+//		x.setState("tn");
+//		x.setUpdatedDate(new Date());
+//		repo.save(x);
+//		System.out.println(repo.getOne(2));
+//		
+//		Seller s = new Seller();
+//		s.setAddress("ad");
+//		s.setPassword("p");
+//		s.setSellerContact("c");
+//		s.setSellerName("name");
+//		Product p = new Product();
+//		p.setCategory("cat");
+//		p.setImagePath("path");
+//		p.setPrice(2.0);
+//		p.setProductDescription("desc ");
+//		p.setProductName("namep");
+//		p.setStock(10);
+//		s.setProducts(Arrays.asList(p));
+//		sell.save(s);
+//		System.out.print(s);
 		
-		Seller s = new Seller();
-		s.setAddress("ad");
-		s.setPassword("p");
-		s.setSellerContact("c");
-		s.setSellerName("name");
-		Product p = new Product();
-		p.setCategory("cat");
-		p.setImagePath("path");
-		p.setPrice(2.0);
-		p.setProductDescription("desc ");
-		p.setProductName("namep");
-		p.setStock(10);
-		s.setProducts(Arrays.asList(p));
-		sell.save(s);
-		System.out.print(s);
-		
+	}
+
+
+	public void newCustomer(Customer customer) {
+		customerRepo.save(customer);
 	}
 }

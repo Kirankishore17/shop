@@ -1,6 +1,7 @@
 package com.foodtruck.shop.Model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,13 +20,13 @@ public class OrderDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private Integer productDetailId;
+	private Integer productId;
 
 	private Integer qty;
 	
-	@OneToOne
-	@JoinColumn(name = "productId")
-	private Product product;
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "productId")
+//	private Product product;
 	
 	// @ManyToOne
 	// @JoinColumn(name="orderId")
@@ -48,13 +49,13 @@ public class OrderDetails {
 	}
 
 
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+//	public Product getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(Product product) {
+//		this.product = product;
+//	}
 
 //	public Integer getOrder() {
 //		return order;
@@ -66,9 +67,9 @@ public class OrderDetails {
 
 	
 
-	public Integer getProductDetailId() {
-		return productDetailId;
-	}
+//	public Integer getProductDetailId() {
+//		return productDetailId;
+//	}
 
 //	public Integer getOrderId() {
 //		return orderId;
@@ -78,14 +79,22 @@ public class OrderDetails {
 //		this.orderId = orderId;
 //	}
 
-	public void setProductDetailId(Integer productDetailId) {
-		this.productDetailId = productDetailId;
-	}
+//	public void setProductDetailId(Integer productDetailId) {
+//		this.productDetailId = productDetailId;
+//	}
 	
 
 	@Override
 	public String toString() {
-		return "OrderDetails [productId=" + productDetailId + ", id=" + id + ", qty=" + qty + ", product=" + product + "]";
+		return "OrderDetails [id=" + id + ", qty=" + qty + ", productId=" + productId + "]";
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 	
 	

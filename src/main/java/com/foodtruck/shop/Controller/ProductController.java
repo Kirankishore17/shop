@@ -1,5 +1,7 @@
 package com.foodtruck.shop.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.foodtruck.shop.Model.Product;
 import com.foodtruck.shop.Service.ProductService;
 
-// @RestController
+@RestController
 public class ProductController {
 
 	@Autowired
@@ -26,4 +28,13 @@ public class ProductController {
 		productService.addNewProduct(p);
 		return p.toString();
 	}
+	
+	@RequestMapping(path = "/allproducts")
+	public List<Product> allProducts() {
+		
+		return productService.allProducts();
+		
+	}
 }
+
+

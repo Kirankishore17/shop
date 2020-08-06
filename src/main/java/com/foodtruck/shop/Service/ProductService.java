@@ -1,5 +1,8 @@
 package com.foodtruck.shop.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +29,9 @@ public class ProductService{
 		sellerRepo.save(s);
 		System.out.println(sellerRepo.getOne(id).getProducts().size());
 		System.out.println(newProduct);
+	}
+
+	public List<Product> allProducts() {
+		return productRepo.findAll().stream().filter(item -> item.getStock() > 0).collect(Collectors.toList());
 	}	
 }
