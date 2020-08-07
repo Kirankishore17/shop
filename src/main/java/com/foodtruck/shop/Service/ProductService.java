@@ -23,15 +23,18 @@ public class ProductService{
 	public void addNewProduct(Product product) {
 		Product newProduct = productRepo.save(product);
 		int id = newProduct.getSellerId();
-		System.out.println(sellerRepo.getOne(id).getProducts().size());
+		System.out.println(newProduct);
 		Seller s = sellerRepo.getOne(id);
 		s.addNewProduct(newProduct);
 		sellerRepo.save(s);
-		System.out.println(sellerRepo.getOne(id).getProducts().size());
 		System.out.println(newProduct);
 	}
 
 	public List<Product> allProducts() {
 		return productRepo.findAll().stream().filter(item -> item.getStock() > 0).collect(Collectors.toList());
+	}
+
+	public Product getProductInfo(Integer id) {
+		return productRepo.getOne(id);
 	}	
 }

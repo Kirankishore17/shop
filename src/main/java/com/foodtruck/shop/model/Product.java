@@ -87,6 +87,4 @@ public class Product {
 				+ ", sellerId=" + sellerId + ", imagePath=" + imagePath + "]";
 	}
 	
-	
-	
 }

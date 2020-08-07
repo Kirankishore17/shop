@@ -1,10 +1,14 @@
 package com.foodtruck.shop.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.foodtruck.shop.Dto.OrderDto;
 import com.foodtruck.shop.Model.Orders;
 import com.foodtruck.shop.Service.OrderService;
 
@@ -48,4 +52,10 @@ public class OrderController {
 	public void newOrder(@RequestBody Orders order) {
 		orderService.newOrder(order);
 	}
+	
+	@RequestMapping(path = "allorders")
+	public List<OrderDto> allOrders(@RequestParam Integer id) {
+		return orderService.allOrders(id);
+	}
+
 }
